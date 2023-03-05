@@ -138,4 +138,43 @@ $(document).ready(function(){
         }
     }
 
+    // Scroll sections
+
+    let navBtn = $('.nav-item');
+
+    let bannerSection = $('#mainSlider');
+    let aboutSection = $('#about-area');
+    let servicesSection = $('#services-area');
+    let teamSection = $('#team-area');
+    let portfolioSection = $('#portfolio-area');
+    let contactSection = $('#contact-area');
+
+    let scrolTo = '';
+    
+    $(navBtn).click(function() {
+
+        let btnId = $(this).attr('id');
+
+        console.log(btnId);
+
+        if(btnId == 'about-menu') {
+            scrolTo = aboutSection;
+        } else if(btnId == 'services-menu') {
+            scrolTo = servicesSection;
+        } else if(btnId == 'team-menu') {
+            scrolTo = teamSection;
+        } else if(btnId == 'portfolio-menu') {
+            scrolTo = portfolioSection;
+        } else if(btnId == 'contact-menu') {
+            scrolTo = contactSection;
+        } else {
+            scrolTo = bannerSection;
+        }
+
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $(scrolTo).offset().top - 70
+        }, 500);
+    
+    });
+
 });
